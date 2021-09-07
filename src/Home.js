@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 import AlertComponent from "./AlertComponent";
 import Navigation from "./Navigation";
+import Post from "./Post";
 import "./style.css";
 
 const Home = () => {
@@ -19,7 +20,9 @@ const Home = () => {
       <Navigation />
       <Container className="container--center text-center">
         <AlertComponent />
-        {data ? data.map((e, key, index) => <p key={key}>{e.title}</p>) : null}
+        {data
+          ? data.map((item, key) => <Post key={key} post={item.title} />)
+          : null}
       </Container>
     </>
   );
