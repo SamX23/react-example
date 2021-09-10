@@ -28,7 +28,7 @@ const Contact = () => {
   };
 
   return (
-    <Container>
+    <>
       <Navigation />
       <Container>
         {!!image && <img src={image} alt="preview" />}
@@ -39,12 +39,10 @@ const Contact = () => {
             ref={files}
             onChange={handleFileChange}
           />
-          <button type="submit" value="submit">
-            Submit
-          </button>
+          <input type="submit" value="submit" />
         </Form>
       </Container>
-    </Container>
+    </>
   );
 };
 
