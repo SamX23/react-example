@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import { Container, Form } from "react-bootstrap";
-import Navigation from "./Navigation";
+import Navigation from "../component/Navigation";
 
 const Contact = () => {
   const [image, setImage] = useState();

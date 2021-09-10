@@ -1,10 +1,10 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
-import AlertComponent from "./AlertComponent";
-import Navigation from "./Navigation";
-import Post from "./Post";
-import "./style.css";
+import AlertComponent from "../component/AlertComponent";
+import Navigation from "../component/Navigation";
+import Post from "../component/Post";
+import "../styles/style.css";
 
 const Home = () => {
   const [data, setData] = useState();
