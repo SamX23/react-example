@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Container } from "react-bootstrap";
-import { withRouter } from "react-router";
+import { useHistory, withRouter } from "react-router";
 import Navigation from "../component/Navigation";
 
 class Response extends String {
@@ -18,8 +18,10 @@ const mockFetch = (url, { body }) => {
   }
 };
 
-const Login = ({ history }) => {
+const Login = () => {
   const [state, setState] = useState({ email: null, password: null });
+
+  let history = useHistory();
 
   const set = (name) => (event) => setState({ [name]: event.target.value });
 
