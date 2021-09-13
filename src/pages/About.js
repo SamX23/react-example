@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Button } from "react-bootstrap";
 import { Redirect, useHistory, withRouter } from "react-router";
 import Navigation from "../component/Navigation";
 
@@ -31,6 +32,9 @@ const About = () => {
         <>
           <Navigation />
           About
+          <Button onClick={handleLogout} variant="danger">
+            Logout
+          </Button>
         </>
       )}
     </>
