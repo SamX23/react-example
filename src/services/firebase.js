@@ -1,6 +1,7 @@
-import firebase from "firebase/compat/app";
+import { initializeApp } from "firebase/app";
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { getStorage } from "firebase/storage";
 import { getAnalytics } from "firebase/analytics";
-import "firebase/compat/auth";
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_apiKey,
@@ -10,11 +11,13 @@ const firebaseConfig = {
   messagingSenderId: process.env.REACT_APP_messagingSenderId,
   appId: process.env.REACT_APP_appId,
   measurementId: process.env.REACT_APP_measurementId,
+  databaseURL: process.env.REACT_APP_databaseURL,
 };
 
-const app = firebase.initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
-const auth = firebase.auth();
+const auth = getAuth(app);
+const db = getStorage(app);
 
-export { auth, analytics };
+export { auth, createUserWithEmailAndPassword, analytics, db };
 export default app;

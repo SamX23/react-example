@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Container } from "react-bootstrap";
 import { useHistory } from "react-router";
-import { auth } from "../services/firebase";
+import { auth, createUserWithEmailAndPassword } from "../services/firebase";
 
 const Register = () => {
   const [state, setState] = useState({});
@@ -15,11 +15,14 @@ const Register = () => {
     const { email, password } = state;
     event.preventDefault();
     if (!email || !password) return alert("please insert missing credentials!");
-    auth.createUserWithEmailAndPassword(email, password).then((e) => {
-      console.log("Success : ", e);
-      history.push("/");
-      localStorage.setItem("login", JSON.stringify(state));
-    });
+    createUserWithEmailAndPassword(auth, email, password).then(
+      (userCredential) => {
+        const user = userCredential.user;
+        console.log("User : ", user, " registered !");
+        history.push("/");
+        localStorage.setItem("login", JSON.stringify(state));
+      }
+    );
   };
 
   return (
