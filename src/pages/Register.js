@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Container } from "react-bootstrap";
-import app from "../services/firebase";
+import { auth } from "../services/firebase";
 
 const Register = () => {
   const [state, setState] = useState({});
@@ -13,7 +13,9 @@ const Register = () => {
     const { email, password } = state;
     event.preventDefault();
     if (!email || !password) return alert("please insert missing credentials!");
-    app.auth().createUserWithEmailAndPassword(email, password);
+    auth
+      .createUserWithEmailAndPassword(email, password)
+      .then((e) => console.log("Success : ", e));
   };
 
   return (
