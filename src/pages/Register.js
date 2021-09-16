@@ -1,7 +1,10 @@
 import { useState } from "react";
 import { Container } from "react-bootstrap";
 import { useHistory } from "react-router";
-import { auth, createUserWithEmailAndPassword } from "../services/firebase";
+import {
+  auth,
+  createUserWithEmailAndPassword,
+} from "../services/firebase-auth";
 
 const Register = () => {
   const [state, setState] = useState({});
